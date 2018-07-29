@@ -17,7 +17,7 @@ API_URL=インスタンスのURL/api/v1/
 +
 [source, sh]
 ----
-$ git clone https://github.com/Na0ki/yakuna_dictionary .
+$ git clone https://github.com/Na0ki/yakuna_dictionary
 ----
 
 == 立ち上げ（ローカル環境）
@@ -46,4 +46,4 @@ $ docker-compose up -d
 あひる焼き, ｱひル焼ｷ, 家鴨やき, AhiRuYaki, 扒家鸭, 3v.7g
 
 == ライセンス
-MIT
+link:/LICENSE[MIT]
