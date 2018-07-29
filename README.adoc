@@ -1,0 +1,49 @@
+= ahiruyaki-don
+
+== 概要
+あひる焼くなの mastodon 用 BOT プログラム
+
+== 初期設定
+. `.env.sample` を `.env` にリネームして、アクセストークンおよび接続インスタンスの情報を書き込む
++
+それぞれのキーに対するフォーマットは以下の通りである
++
+[source, text]
+----
+ACCESS_TOKEN=ここにトークン
+API_URL=インスタンスのURL/api/v1/
+----
+. 辞書ファイルをダウンロードする
++
+[source, sh]
+----
+$ git clone https://github.com/Na0ki/yakuna_dictionary .
+----
+
+== 立ち上げ（ローカル環境）
+node.js および npm が必要
+
+. `$ npm i`
+. `$ npm run build`
+. `$ npm start`
+
+== 立ち上げ（docker-compose）
+docker-compose を使う +
+下記コマンドを実行して立ち上げる
+
+[source, sh]
+----
+$ docker-compose up -d
+----
+
+== 反応するワード
+[source, js]
+----
+/([あアｱ][ひヒﾋ][るルﾙ]|家鴨)[やヤﾔ焼][きキｷ]|ahiruyaki|扒家鸭|3v\.7g/i
+----
+* sample
++
+あひる焼き, ｱひル焼ｷ, 家鴨やき, AhiRuYaki, 扒家鸭, 3v.7g
+
+== ライセンス
+MIT

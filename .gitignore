@@ -1,0 +1,5 @@
+.DS_Store
+.env
+yakuna_dictionary
+node_modules
+build
