@@ -4,10 +4,11 @@ import { Config } from './models/config';
 import { Dictionary } from './models/dictionary';
 import { Response } from './models/response';
 
-// noinspection NonAsciiCharacters
-const あひる焼き = /([あアｱ][ひヒﾋ][るルﾙ]|家鴨)[やヤﾔ焼][きキｷ]|ahiruyaki|扒家鸭|3v\.7g/i;
 const Mastodon = require('mastodon-api');
 const dir_path = './yakuna_dictionary/';
+
+// noinspection NonAsciiCharacters
+export const あひる焼き = /([あアｱ][ひヒﾋ][るルﾙ]|家鴨)[やヤﾔ焼][きキｷ]|ahiruyaki|扒家鸭|3v\.7g/i;
 
 export class Yakuna {
 
@@ -65,7 +66,7 @@ export class Yakuna {
 
     private yakuna(msg: Response) {
         this.criminals.set(msg.id(), new Date());
-        const status =  {
+        const status = {
             status: `${msg.username()} ${this.chooseMessage(msg)}`,
             visibility: msg.visibility(),
             in_reply_to_id: msg.id(),
