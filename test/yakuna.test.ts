@@ -1,7 +1,7 @@
 import * as assert from 'power-assert';
 import 'mocha';
 import { config } from 'dotenv';
-import { Yakuna, あひる焼き } from '../src/yakuna';
+import { Yakuna, あひる焼き, ReplaceCase } from '../src/yakuna';
 import { Dictionary } from '../src/models/dictionary';
 
 describe('env', () => {
@@ -86,14 +86,21 @@ describe('yakuna', () => {
         );
     });
 
+    it('should remove zero width space', () => {
+        const testCase = 'あㅤひる焼き';
+
+        const replaced = testCase.replace(ReplaceCase, '');
+        assert.equal(replaced, 'あひる焼き');
+    });
+
     it('should match regex', () => {
         const regex = あひる焼き;
         const testCase = [
             'あひる焼き', '家鴨焼き', 'あひるやき', 'ahiruyaki', '扒家鸭', '3v.7g',
-            'あひル焼ｷ', 'アﾋるやキ', '家鴨やｷ', 'AhiRuYaki',
+            'あひル焼ｷ', 'アﾋるやキ', '家鴨やｷ', 'AhiRuYaki', 'あㅤひる焼き'
         ];
 
-        testCase.forEach((text) => assert.ok(regex.test(text)));
+        testCase.forEach((text) => assert.ok(regex.test(text.replace(ReplaceCase, ''))));
     });
 
     it('should not match regex', () => {

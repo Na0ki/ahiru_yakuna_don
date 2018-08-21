@@ -9,6 +9,7 @@ const dir_path = './yakuna_dictionary/';
 
 // noinspection NonAsciiCharacters
 export const あひる焼き = /([あアｱ][ひヒﾋ][るルﾙ]|家鴨)[やヤﾔ焼][きキｷ]|ahiruyaki|扒家鸭|3v\.7g/i;
+export const ReplaceCase = /[\u200B-\u200D\uFEFF\u3164]/g;
 
 export class Yakuna {
 
@@ -58,7 +59,7 @@ export class Yakuna {
             if (msg.createdAt() < this.definedTime || msg.data.reblogs_count > 0) {
                 return;
             }
-            if (あひる焼き.test(msg.content()) && !this.criminals.has(msg.id())) {
+            if (あひる焼き.test(msg.content().replace(ReplaceCase, '')) && !this.criminals.has(msg.id())) {
                 this.yakuna(msg);
             }
         }
