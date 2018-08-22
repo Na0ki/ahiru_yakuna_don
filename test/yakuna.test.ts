@@ -87,10 +87,19 @@ describe('yakuna', () => {
     });
 
     it('should remove zero width space', () => {
+        // from asyley_
         const testCase = 'あㅤひる焼き';
 
         const replaced = testCase.replace(ReplaceCase, '');
         assert.equal(replaced, 'あひる焼き');
+    });
+
+    it('should remove space', () => {
+        // from 2bo
+        const testCase = 'A H I R U Y A K I';
+
+        const replaced = testCase.replace(ReplaceCase, '');
+        assert.equal(replaced, 'AHIRUYAKI');
     });
 
     it('should match regex', () => {

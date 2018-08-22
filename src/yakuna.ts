@@ -9,7 +9,7 @@ const dir_path = './yakuna_dictionary/';
 
 // noinspection NonAsciiCharacters
 export const あひる焼き = /([あアｱ][ひヒﾋ][るルﾙ]|家鴨)[やヤﾔ焼][きキｷ]|ahiruyaki|扒家鸭|3v\.7g/i;
-export const ReplaceCase = /[\u200B-\u200D\uFEFF\u3164]/g;
+export const ReplaceCase = /[\u200B-\u200D\uFEFF\u3164\s+]/g;
 
 export class Yakuna {
 
