@@ -131,15 +131,15 @@ describe('yakuna', () => {
 
   it('should remove new line and match multiline yaki', () => {
     const regex = あひる焼き;
-    const testCase = `日直
-    あ
-    ひ
-    る
-    焼
-    き`;
+    const testCase = [
+      '日直<br> あ<br> ひ<br> る<br> 焼<br>　き',
+      '<p>日直</p><p>あ</p><p>ひ</p><p>る</p><p>焼き</p>'
+    ];
 
-    const replaced = testCase.replace(ReplaceCase, '');
-    assert.ok(regex.test(replaced));
+    testCase.forEach(text => {
+      assert.ok(text.replace(ReplaceCase, '') === '日直あひる焼き');
+      assert.ok(regex.test(text.replace(ReplaceCase, '')), `not matching: ${text}`)
+    });
   });
 
   it('should not match regex', () => {
