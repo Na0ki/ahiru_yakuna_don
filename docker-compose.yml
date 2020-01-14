@@ -6,3 +6,5 @@ services:
     image: yakuna:latest
     container_name: ahiruyakuna
     restart: always
+    env_file:
+      - .env

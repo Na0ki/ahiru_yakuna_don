@@ -2,7 +2,9 @@ import { Yakuna } from './yakuna';
 import { config } from 'dotenv';
 
 try {
-  config();
+  if (process.env.DEBUG) {
+    config();
+  }
   new Yakuna({
     access_token: process.env.ACCESS_TOKEN || '',
     api_url: process.env.API_URL || ''

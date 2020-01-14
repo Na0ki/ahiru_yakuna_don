@@ -1,6 +1,7 @@
-FROM node:8-alpine
+FROM node:13.6.0-alpine
 
-RUN apk add --no-cache --virtual .tz \
+RUN apk update && \
+    apk add --no-cache --virtual .tz \
     tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
     apk del .tz
