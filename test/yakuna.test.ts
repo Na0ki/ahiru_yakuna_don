@@ -21,10 +21,10 @@ describe('env', () => {
   it('should fail instantiate', () => {
     assert.throws(
       () => new Yakuna({ access_token: '', api_url: '' }),
-      (err: Error) => {
-        assert.equal(err.name, 'Error');
+      (err: unknown) => {
+        assert.equal((err as Error).name, 'Error');
         assert.equal(
-          err.message,
+          (err as Error).message,
           "Mastodon config must include 'access_token' when using 'user_auth'"
         );
         return !!err;

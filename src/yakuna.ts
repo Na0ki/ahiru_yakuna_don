@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { safeLoad } from 'js-yaml';
+import { load } from 'js-yaml';
 import { Config } from './models/config';
 import { Dictionary } from './models/dictionary';
 import { Response } from './models/response';
@@ -47,9 +47,9 @@ export class Yakuna {
         continue;
       }
 
-      dictionaries[matched[1]] = safeLoad(
+      dictionaries[matched[1]] = load(
         fs.readFileSync(`${dir_path}${filename}`, 'utf8')
-      );
+      ) as any;
     }
     return dictionaries;
   }
