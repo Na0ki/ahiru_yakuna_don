@@ -138,7 +138,7 @@ describe('yakuna', () => {
 
     testCase.forEach(text => {
       assert.ok(text.replace(ReplaceCase, '') === '日直あひる焼き');
-      assert.ok(regex.test(text.replace(ReplaceCase, '')), `not matching: ${text}`)
+      assert.ok(regex.test(text.replace(ReplaceCase, '')), `not matching: ${text}`);
     });
   });
 
