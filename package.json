@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/Na0ki/ahiru_yakuna_don",
   "scripts": {
-    "start": "DEBUG=true node build/src/app.js",
+    "start": "cross-env DEBUG=true node build/src/app.js",
     "start:prod": "node build/app.js",
     "build": "tsc",
     "test": "npm run build && mocha ./build/test/**/*.test.js",
@@ -45,6 +45,7 @@
     "@types/power-assert": "^1.5.5",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
+    "cross-env": "^7.0.3",
     "mocha": "^9.0.0",
     "power-assert": "^1.6.1",
     "typescript": "^4.4.0"
