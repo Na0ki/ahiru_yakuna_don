@@ -1,4 +1,4 @@
-FROM node:13.6.0-alpine
+FROM node:16.13.0-alpine
 
 RUN apk update && \
     apk add --no-cache --virtual .tz \
@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 
 RUN npm i -g npm && \
-    npm i
+    npm ci
 
 COPY . /usr/src/app/
 
