@@ -53,6 +53,13 @@
     "lodash.template": "~> 4.5.0",
     "minimist": ">=1.2.6",
     "shelljs": "~> 0.8.5",
-    "minimatch": ">=3.0.5"
+    "minimatch": ">=3.0.5",
+    "chalk": {
+      "ansi-regex": ">=3.0.1"
+    },
+    "string-width": {
+      "ansi-regex": ">=3.0.1"
+    },
+    "ajv": ">=6.12.3"
   }
 }
